@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="javaScript.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Rock Paper Scissors</h1>
+    </header>
+    <main>
+        <section class="score_board">
+            <div id="user_label" class="badge">user</div>
+            <div id="computer_label" class="badge">comp</div>
+            <span id="user_score">0</span>:<span id="computer_score">0</span>
+        </section>
+        <section class="result">
+            <p>First to 5 points wins!</p>
+        </section>
+        <div class="choices">
+            <figure class="choice" id="r">
+                <img src="./images/rock.png" alt="rock" width="150" height="150">
+            </figure>
+            <figure class="choice" id="p">
+                <img src="./images/paper.png" alt="paper" width="150" height="150">
+            </figure>
+            <figure class="choice" id="s">
+                <img src="./images/scissors.png" alt="scissors" width="150" height="150">
+            </figure>    
+        </div>
+        <section id="game-finish"></section>
+        <section class="action_button">
+            <button id="start_button"> Start</button>
+        </section>
+    </main>
+</body>
+</html>
