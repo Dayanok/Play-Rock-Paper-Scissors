@@ -8,6 +8,7 @@ const result_p = document.querySelector(".result p");
 const rock_figure = document.getElementById("r");
 const paper_figure = document.getElementById("p");
 const scissors_figure = document.getElementById("s");
+const finalResult = document.querySelector("game-finish");
 const start_b = document.getElementById("start_button");
 
 function computerOptions(){
@@ -101,61 +102,67 @@ function game(userChoice){
                 }    
             }
             totalRound++;
-            //if(totalRound===5){
             if(userScore===5 || computerScore===5){
-                console.log(`you have played 5 rounds the score is User:${userScore}  Computer:${computerScore}`)
-                finishGame();
+                console.log(`you have played 5 rounds the score is User:${userScore}  Computer:${computerScore}`);
+                finishGame(); 
             }
         }
 
 function finishGame(){
     const playerWon=userScore>computerScore;
-    const message=`Finished...${playerWon?'You':'The Computer'} WON! \n ${playerWon?userScore:computerScore}/${playerWon?computerScore:userScore}`
+    const message=`The Game is Over...${playerWon?'You':'The Computer'} WON! \n ${playerWon?userScore:computerScore}/${playerWon?computerScore:userScore}`
     const massegeSpan=document.createElement('span');
     massegeSpan.innerText=message;
     document.querySelector("#game-finish").appendChild(massegeSpan);
+
 }
 
 function startButton(){
     userScore = 0;
     computerScore= 0;
-    
-
     userScore_span.innerText = 0;
     computerScore_span.innerText = 0;
     result_p.innerText = 'First to 5 points wins!';  
-    
     console.clear();
-    // document.getElementById("start_button").innerHTML = '<button onclick="clearFunction()"></button>'
-    // const element = document.querySelector("#game-finish");
-    // element.remove();
 }
 
-function clearFunction(){
-    
-    // const element = document.getElementById("#game-finish");
-    // element.remove();
-    
+function destroy() {
+    let olddata = document.getElementById("game-finish").lastChild;
+    document.getElementById("game-finish").removeChild(olddata);
 }
 
-function playGame(){
+function stopFunction(e) {
+        if(userScore === 5 || computerScore === 5){
+            alert('The game has finished click okay to see your score!')
+                e.preventDefault();
+        } 
+}
+
+function playGame(){ 
+
+
     rock_figure.addEventListener('click', function() {
-        game("r");  
-        console.log("You clicked Rock");
-    }) 
-
+        game("r"); 
+        stopFunction(event); 
+        console.log("You clicked Rock"); 
+    })   
     paper_figure.addEventListener('click', function() {
         game("p");
+        stopFunction(event); 
         console.log("You clicked Paper");
     }) 
-
+    
     scissors_figure.addEventListener('click', function() {
         game("s");
+        stopFunction(event); 
         console.log("You clicked Scissors");
     }) 
+    
     start_b.addEventListener('click', function() {
         startButton();
+        destroy();
     })
+    
 }
 playGame();  
 
