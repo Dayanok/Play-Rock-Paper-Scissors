@@ -1,15 +1,15 @@
 let userScore = 0,
 computerScore = 0,
 totalRound = 0;
-const userScore_span = document.getElementById("user_score");
-const computerScore_span = document.getElementById("computer_score");
-const scoreBoard_section = document.querySelector(".score_board");
-const result_p = document.querySelector(".result p");
-const rock_figure = document.getElementById("r");
-const paper_figure = document.getElementById("p");
-const scissors_figure = document.getElementById("s");
-const finalResult = document.querySelector("game-finish");
-const start_b = document.getElementById("start_button");
+const userScore_span = document.getElementById("user_score"),
+computerScore_span = document.getElementById("computer_score"),
+scoreBoard_section = document.querySelector(".score_board"),
+result_p = document.querySelector(".result p"),
+rock_figure = document.getElementById("r"),
+paper_figure = document.getElementById("p"),
+scissors_figure = document.getElementById("s"),
+finalResult = document.querySelector("game-finish"),
+start_b = document.getElementById("start_button");
 
 function computerOptions(){
     const computerSelection = Math.floor(Math.random() * 3);
