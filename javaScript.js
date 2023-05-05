@@ -33,10 +33,7 @@ function convertToWord(letter){
     }else
         return "Scissors";
 }
-function playround(userChoice,computerChoice,outcome){
-    let glowClass;
-    
-}
+
 function win(userChoice, computerChoice){
     const smallUserWord = "User:".fontsize(3).sup();
     const smallComputerWord = "Computer:".fontsize(3).sup();
@@ -139,8 +136,6 @@ function stopFunction(e) {
 }
 
 function playGame(){ 
-
-
     rock_figure.addEventListener('click', function() {
         game("r"); 
         stopFunction(event); 
